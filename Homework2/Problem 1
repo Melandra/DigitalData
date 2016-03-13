@@ -1,0 +1,19 @@
+# This is the schema for Problem 1
+
+# This a the table of people who are members in the library. It is possible that someone has not borrowed any books.
+people
+*id integer
+- name varchar(50)
+- borrowed_books_id? => books.id
+
+books
+*id integer
+- title varchar(255)
+- author varchar(50)
+- pubilshed date
+
+return_date
+*id integer
+- return_date date
+- borrowed_books_id => books.id
+- borrower_id => people.id

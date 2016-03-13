@@ -1,0 +1,33 @@
+# This is the schema for problem 3
+
+music
+* id integer
+- piece varchar(255)
+- place => place.id
+- date_of_performance => date.id
+- performer => people.id
+- reviewer? => people.id
+
+place
+* id integer
+- name varchar(50)
+- lat decimal (20,15)
+- lng decimal (20,15)
+
+people
+* id integer
+- name varchar(50)
+
+review
+* id integer
+- music => music.id
+- author => people_id
+- summary varchar (255)
+
+date
+* id integer
+- music => music.id
+- place => place.id
+- performer? => people.id
+- reviewer? => people.id
+- date date

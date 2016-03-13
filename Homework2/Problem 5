@@ -1,0 +1,32 @@
+# This is the schema for problem 5
+
+play
+* id integer
+- title varchar(255)
+- author => people.id
+- publication date
+- genre varchar(50)
+
+people
+* id integer
+- name varchar(50)
+- born date
+
+character
+* id integer
+- play_id => play.id
+- actor => people.id
+
+act
+* id integer
+- play_id => play.id
+- act_nr integer
+- character => character.id
+- actor => people.id
+
+speaking_line
+* id integer
+- play_id => play.id
+- line_nr integer
+- speaker => character.id
+- actor => people.id
