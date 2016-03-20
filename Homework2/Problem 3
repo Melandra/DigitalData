@@ -1,5 +1,25 @@
 # This is the schema for problem 3
 
+people
+* id integer
+- name varchar(50)
+
+place
+* id integer
+- name varchar(50)
+- lat decimal(20,15)
+- lng decimal(20,15)
+
+## NOTE you cannot have a circular reference in SQL!
+## So music can point to date, or date to music, but not both.
+## I have removed one of the links to make the SQL work. --TLA
+date
+* id integer
+- place => place.id
+- performer? => people.id
+- reviewer? => people.id
+- date date
+
 music
 * id integer
 - piece varchar(255)
@@ -8,26 +28,9 @@ music
 - performer => people.id
 - reviewer? => people.id
 
-place
-* id integer
-- name varchar(50)
-- lat decimal (20,15)
-- lng decimal (20,15)
-
-people
-* id integer
-- name varchar(50)
-
 review
 * id integer
 - music => music.id
-- author => people_id
+- author => people.id
 - summary varchar (255)
 
-date
-* id integer
-- music => music.id
-- place => place.id
-- performer? => people.id
-- reviewer? => people.id
-- date date

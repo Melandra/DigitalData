@@ -1,16 +1,16 @@
 # This is the schema for problem 5
 
+people
+* id integer
+- name varchar(50)
+- born date
+
 play
 * id integer
 - title varchar(255)
 - author => people.id
 - publication date
 - genre varchar(50)
-
-people
-* id integer
-- name varchar(50)
-- born date
 
 character
 * id integer
