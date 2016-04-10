@@ -10,7 +10,6 @@ books
 people
 *id integer
 - name varchar(50)
-- borrowed_books_id? => books.id
 
 return_date
 *id integer

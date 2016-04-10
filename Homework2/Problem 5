@@ -12,21 +12,30 @@ play
 - publication date
 - genre varchar(50)
 
-character
+role
 * id integer
-- play_id => play.id
+- name varchar
+
+role_play
+* id integer
+- role => role.id
+- play => play.id
+
+role_actor
+* id integer
+- role => role.id
 - actor => people.id
 
 act
 * id integer
 - play_id => play.id
 - act_nr integer
-- character => character.id
+- role => role.id
 - actor => people.id
 
 speaking_line
 * id integer
 - play_id => play.id
 - line_nr integer
-- speaker => character.id
+- speaker => role.id
 - actor => people.id

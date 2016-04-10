@@ -15,22 +15,32 @@ place
 ## I have removed one of the links to make the SQL work. --TLA
 date
 * id integer
-- place => place.id
-- performer? => people.id
-- reviewer? => people.id
 - date date
 
 music
 * id integer
 - piece varchar(255)
-- place => place.id
-- date_of_performance => date.id
-- performer => people.id
-- reviewer? => people.id
 
 review
 * id integer
 - music => music.id
 - author => people.id
 - summary varchar (255)
+
+date_place
+* id integer
+- place => place.id
+- date => date.id
+- music => music.id
+
+date_performer
+* id integer
+- date => date.id
+- performer => people.id
+- music => music.id
+
+date_review
+* id integer
+- date => date.id
+- review => review.id
 
