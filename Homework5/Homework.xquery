@@ -2,8 +2,11 @@ declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
 for $play in collection("Shakespeare")
         let $playname := $play//tei:fileDesc/tei:titleStmt/tei:title/text()
-        let $speaker := distinct-values($play//tei:body//tei:speaker/text())
+        let $speakers := distinct-values($play//tei:body//tei:speaker)
         return <play> 
                     <title> {$playname} </title>
-                    <speaker> {$speaker} </speaker>
+                    {for $speaker in $speakers
+                    order by $speaker
+                   return <speaker> {$speaker} </speaker>
+                    }
                 </play>
